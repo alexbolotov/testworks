@@ -41,9 +41,9 @@ class Comments extends CI_Controller {
 	        $this->form_validation->set_rules('message', 'message', 'required', 
 	            array('required' => '<div class="alert alert-danger" role="alert">Поле сообщения должно быть заполнено</div>')
 	        );
-	            
-			if ($this->form_validation->run() === TRUE)
-		    {
+	        
+            if ($this->form_validation->run() === TRUE) {
+				$this->input->post(NULL, TRUE);
 		        $this->comments_model->add_comment();
 		        redirect(base_url().'index.php/comments/index', 'refresh');
 			}
